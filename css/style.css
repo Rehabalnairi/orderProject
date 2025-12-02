@@ -2,22 +2,25 @@ b1{
  
 }
 .view-btn {
-    background-color: #ffffff;  
     color: #28a745;            
-    border: 1px solid #28a745;  
-    width: 100%;                 
+    border: 2px solid #28a745;  
+    background-color: #ffffff;
+    padding: 6px 12px;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    border-radius: 4px;
+    width: auto;
 }
 
 .view-btn:hover {
-    background-color:  #28a745; 
-    color: #ffffff;             
+    background-color: #28a745; 
+    color: #ffffff;     
+    border-color: #28a745;        
 }
 
 .view-btn:active {
     background-color: #28a745;  
-    border-color: #28a745;
+    border-color: #00ff00;
     color: #ffffff;
 }
 
@@ -28,5 +31,95 @@ b1{
     transform: translate(-50%, -50%);
     z-index: 9999;
    
+}
+
+/* General Styling */
+.freshcart-footer {
+    padding: 40px 20px;
+    background-color: #a09e9e;
+    text-align: center;
+    color: #333;
+}
+
+/* App Download Section */
+.app-download-section h3 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.email-form {
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.email-form input[type="email"] {
+    flex-grow: 1;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    max-width: 400px;
+}
+
+.email-form button {
+    padding: 15px 30px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Separator */
+.freshcart-footer hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+}
+
+
+.partners-delivery-section {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    text-align: left;
+}
+
+.partners-delivery-section h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.delivery-links .app-icon i {
+    font-size: 24px;       /* smaller size */
+    color: #333;           /* dark color initially */
+    transition: transform 0.2s, color 0.2s;
+}
+
+.delivery-links .app-icon:hover i {
+    transform: scale(1.1); /* slightly bigger on hover */
+    color: #5d5f61;       
+
+}
+
+
+/* For mobile view, stack the sections */
+@media (max-width: 768px) {
+    .partners-delivery-section {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .payment-partners, .delivery-links {
+        text-align: center; 
+    }
+    .delivery-links img {
+        margin: 5px;
+    }
 }
 
