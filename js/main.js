@@ -1,4 +1,11 @@
 async function getProducts() {
+    const loader = document.getElementById("loader");
+    const container = document.getElementById("productsContainer");
+
+    // Show loader before fetching
+    loader.style.display = "block";
+    container.innerHTML = ""; // clear container while loading
+
     try {
         const response = await fetch("https://ecommerce.routemisr.com/api/v1/products");
         const result = await response.json();
@@ -6,6 +13,10 @@ async function getProducts() {
         displayProducts(result.data);
     } catch (error) {
         console.error("Error fetching products:", error);
+        container.innerHTML = "<p class='text-danger'>Failed to load products.</p>";
+    } finally {
+        // Hide loader after fetching
+        loader.style.display = "none";
     }
 }
 
@@ -24,6 +35,11 @@ function displayProducts(products) {
                         <p class="mb-0">${product.price} EP</p>
                         <i class="fa-solid fa-star text-warning"></i>
                     </div>
+                    <div class="d-flex justify-content-start mt-2">
+                        <button class="btn view-btn mt-auto" onclick="viewDetails('${product._id}', this)">
+                        View 
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,6 +47,20 @@ function displayProducts(products) {
     });
 
     container.innerHTML = html;
+}
+
+function viewDetails(productId, btn) {
+    localStorage.setItem("productId", productId);
+    // Show loader when going to details page
+    const loader = document.getElementById("loader");
+    loader.style.display = "block";
+
+    btn.style.backgroundColor = "#28a745";
+    btn.style.color = "#ffffff";
+
+    setTimeout(() => {
+        window.location.href = "Details.html";
+    }, 300);
 }
 
 getProducts();

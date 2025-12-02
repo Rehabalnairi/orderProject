@@ -1,3 +1,32 @@
 b1{
  
 }
+.view-btn {
+    background-color: #ffffff;  
+    color: #28a745;            
+    border: 1px solid #28a745;  
+    width: 100%;                 
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.view-btn:hover {
+    background-color:  #28a745; 
+    color: #ffffff;             
+}
+
+.view-btn:active {
+    background-color: #28a745;  
+    border-color: #28a745;
+    color: #ffffff;
+}
+
+#loader {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+   
+}
+
