@@ -64,3 +64,35 @@ function viewDetails(productId, btn) {
 }
 
 getProducts();
+
+const slider = document.getElementById("categoriesSlider");
+async function loadCategories() {
+  const res = await fetch("https://ecommerce.routemisr.com/api/v1/categories");
+  const data = await res.json();
+
+  slider.innerHTML = data.data.map(cat => `
+    <div class="category-card">
+      <img src="${cat.image}" alt="${cat.name}">
+      <h6>${cat.name}</h6>
+    </div>
+  `).join("");
+
+  startAutoSlide(); //start auto sliding after loading categories
+}
+
+
+
+loadCategories();
+function startAutoSlide() {
+  const step = 240; // disply width of one category card
+  const delay = 5000; // 5 seconds interval
+
+  setInterval(() => {
+    if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+      slider.scrollLeft = 0; // reset to start
+    } else {
+      slider.scrollLeft += step;
+    }
+  }, delay);
+}
+
