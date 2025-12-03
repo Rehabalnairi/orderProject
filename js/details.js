@@ -26,6 +26,7 @@ async function loadProductDetails() {
                     <p>${product.description}</p>
                     <p>Category: ${product.category?.name || "No category"}</p>
                 </div>
+                 <button class ="btn btn-outline-success">add to car</button>
             </div>
         `;
     } catch (error) {

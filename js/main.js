@@ -36,7 +36,7 @@ function displayProducts(products) {
                         <i class="fa-solid fa-star text-warning"></i>
                     </div>
                     <div class="d-flex justify-content-start mt-2">
-                        <button class="btn view-btn mt-auto" onclick="viewDetails('${product._id}', this)">
+                        <button class="btn view-btn mt-auto btn-outline-success" onclick="viewDetails('${product._id}', this)">
                         View 
                         </button>
                     </div>
